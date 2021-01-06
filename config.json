@@ -22,7 +22,7 @@
             "debug" : false,
 
             "searchOptions" : {
-                "searchWheatRadius" : 10,
+                "searchCropRadius" : 10,
                 "searchChestRadius" : 100
             },
 

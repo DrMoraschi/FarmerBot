@@ -69,7 +69,7 @@ function startUp()
             const mcData = require('minecraft-data')(bot.version);
             const defaultMove = new Movements(bot, mcData);
             bot.pathfinder.setMovements(defaultMove);
-    
+
             bot.pathfinder.movements.canJump = false
             bot.pathfinder.movements.blocksToAvoid.delete(mcData.blocksByName.wheat.id);
             bot.pathfinder.movements.blocksCantBreak.add(mcData.blocksByName.wheat.id);
@@ -126,7 +126,7 @@ function startUp()
                 if (bot.inventory.items().length !== 0) {
                     await placeSeedBefore()
                 };
-    
+
                 await checkIfInventoryFull()
     
                 if (inventoryFullDontGo === false) {
@@ -135,14 +135,14 @@ function startUp()
                     if (farmer.options.debug) console.log('Changed to findCrops')
             
                     const cropBlock = bot.findBlock({
-                        maxDistance: farmer.options.searchOptions.searchWheatRadius,
+                        maxDistance: farmer.options.searchOptions.searchCropRadius,
                         matching: (block) => {
                             return block.type === mcData.blocksByName[farmer.options.cropType].id && block.metadata === 7
                         },
                     });
             
                     if (!cropBlock) {
-                        console.log(chalk.redBright(` No ${farmer.options.cropType} in a radius of ${farmer.options.searchOptions.searchWheatRadius} block(s)\n Trying again in ${farmer.options.timeouts.timeoutResultErr/1000} seconds`));
+                        console.log(chalk.redBright(` No ${farmer.options.cropType} in a radius of ${farmer.options.searchOptions.searchCropRadius} block(s)\n Trying again in ${farmer.options.timeouts.timeoutResultErr/1000} seconds`));
             
                         stopInterval = true
 
@@ -193,7 +193,7 @@ function startUp()
     
                 if (inventoryFullDontGo === false) {
                     const cropBlockNew = bot.findBlock({
-                        maxDistance: farmer.options.searchOptions.searchWheatRadius,
+                        maxDistance: farmer.options.searchOptions.searchCropRadius,
                         matching: (block) => {
                             return block.type === mcData.blocksByName[farmer.options.cropType].id && block.metadata === 7
                         },
