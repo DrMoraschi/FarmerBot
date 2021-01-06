@@ -1,0 +1,39 @@
+{
+    "server": {
+        "host" : "localhost"
+    },
+
+    "farmer" : {
+        "bot" : {
+            "username" : "Farmer",
+            "password" : null
+        },
+
+        "discord" : {
+            "token" : "",
+            "channelID" : "",
+            "embedColorHex" : "#b700ff",
+            "changeAvatar" : false,
+            "prefix" : "+"
+        },
+
+        "options" : {
+            "cropType" : "wheat",
+            "debug" : false,
+
+            "searchOptions" : {
+                "searchWheatRadius" : 10,
+                "searchChestRadius" : 100
+            },
+
+            "timeouts" : {
+                "timeoutOnCollect" : 1,
+                "timeoutOnChest" : 50,
+                "timeoutOnDeposit" : 1000,
+                "timeoutEquipErr" : 1000,
+                "timeoutResultErr" : 5000,
+                "timeoutDepositErr" : 5000
+            }
+        }
+    }
+}
