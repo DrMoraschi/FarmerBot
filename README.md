@@ -1,5 +1,7 @@
 [![Discord](https://img.shields.io/badge/Chat-Discord-blue.svg)](https://discord.gg/JQeVxbQT5G)
 # FarmerBot
+**This project is abandoned, sorry but I don't have the time and will to continue adding new features and I won't provide support. Feel free to PR and I'll review them.**
+
 A farming bot for Minecraft thanks to [mineflayer](https://github.com/PrismarineJS/mineflayer) that picks up wheat/carrot/potatoes, replants them and deposits all items in a nearby chest. Mainly for Windows, not tested on other OS.
 
 Written in Node.js
