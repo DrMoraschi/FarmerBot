@@ -204,10 +204,20 @@ function startUp()
                             console.log(chalk.redBright(` Couldn't dig block: `)+err);
                         } else {
                             console.log(chalk.greenBright(' Collected')+' block');
-            
+                            
+                            bot.on('itemDrop', (entity) =>
+                            {
+                                bot.removeAllListeners('itemDrop');
+                                bot.pathfinder.goto(new GoalBlock(entity.position.x, entity.position.y, entity.position.z), () =>
+                                {
+                                    null
+                                });
+                            });
+
                             bot.on('playerCollect', (collector, collected) => {
                                 if (collector.username === bot.username) {
                                     if (collected.metadata[7].itemId === mcData.itemsByName[mcData.blockLoot[farmer.options.cropType].drops[1].item].id || collected.metadata[7].itemId === mcData.blocksByName[farmer.options.cropType].drops[0]) {
+                                        bot.pathfinder.setGoal(null);
                                         setTimeout(() => {
                                             equipSeeds();      
                                         }, 1);
